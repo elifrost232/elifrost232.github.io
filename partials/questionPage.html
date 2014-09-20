@@ -1,0 +1,92 @@
+<!-- Question Page -->
+
+<!--Title Section -->
+<div class="question_page_container" ng-show="questionData.displayScreen">
+	<div class="titlePanel">
+        <h3 class="question_title" ng-bind-html="validateSnippet(questionData.questionInfo.title)"></h3>
+        <div class="question_favorite_icon" ng-show="questionData.isAbleToFavorite" ng-class="questionData.isFavorite ? 'icon-star' : 'icon-star-empty'" ng-click="questionData.setFavorite()"></div>
+	</div>
+	<br>​
+	<!-- Question's Body  -->
+	
+	<div class="panel panel-default">
+	  <div class="panel-body">
+
+		<div class="score">
+			<span class="upvote"/>	
+			<h4 class="media-heading answer_score">{{questionData.questionInfo.score}}</h4>
+			<span class="downvote"/>	
+		</div>
+
+		<div class="question_body" ng-bind-html="questionData.questionInfo.body"></div>
+			  <div class="question_user_info">
+					<img class="media-object question_user_pic user-picture avatar_size" src={{questionData.questionInfo.owner.profile_image}}>
+	    			<h4 class="media-heading answer_user">{{questionData.questionInfo.owner.display_name}}</h4>
+					<span class="user_date"> {{questionData.questionInfo.creation_date + "000" | date:'medium'}}</span>	
+			  </div>
+		</div>
+	</div>
+	<!-- Question's Body's Comments  -->
+	
+	<div class="panel-default question_comments">
+			<div ng-repeat="comment in questionData.questionInfo.comments | limitTo :4">
+			<div class="media panel panel-body">
+		  <div class="pull-left">
+		    <img class="media-object user-picture avatar_size" src={{comment.owner.profile_image}}>
+		  </div>		
+		  <div class="media-body">
+		  <div class="question_user_and_score_bar">
+              <h4 class="media-heading answer_score">{{comment.score}}</h4>
+              <h4 class="media-heading answer_user">{{comment.owner.display_name}}</h4>
+			</div>
+				<div ng-bind-html="comment.body"></div>
+			<span class="user_date">{{comment.creation_date + "000" | date:'medium'}}</span>	
+			</div>
+		</div>
+	</div>
+	</div>
+	<br><br>
+	
+	
+	<!-- Answers and Answer's Comments  -->
+	<div class="answers-subheader">
+		<h4 class="answers-subheader">{{questionData.questionInfo.answer_count}} Answers</h4>
+	</div>
+ 
+	<div ng-repeat="answer in questionData.questionInfo.answers">
+		<div class="panel panel-body">
+			<div class="score">
+				<span class="upvote"/>
+				<h4 class="media-heading answer_score">{{answer.score}}</h4>
+				<span class="downvote"/>
+			</div>
+		 	<div class="media-body">
+				<div class="panel panel-default question_no_border">
+		    		<div ng-bind-html="answer.body"></div>	
+	    			<img class="media-object user-picture avatar_size" src="{{answer.owner.profile_image}}"/>
+		    		<h4 class="media-heading answer_user">{{answer.owner.display_name}}</h4>
+					<span class="user_date">{{answer.creation_date + "000" | date:'medium'}}</span>	
+				</div>	
+			</div>
+		</div>
+    	<div ng-repeat="comment in answer.comments | limitTo: 4">
+			<div class="panel panel-default question_comments">
+    			<div class="panel panel-body">
+					<div class="pull-left">
+						<img class="media-object user-picture avatar_size" src="{{comment.owner.profile_image}}">
+					</div>
+					<div class="media-body">
+  						<div class="question_user_and_score_bar">
+                            <h4 class="media-heading comment_score">{{comment.score}}</h4>
+					    	<h4 class="media-heading comment_user">{{comment.owner.display_name}}</h4>
+						</div>	
+						<div ng-bind-html="comment.body"></div>	
+							<span class="user_date">{{comment.creation_date + "000" | date:'medium'}}</span>			
+			 		 	</div>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>

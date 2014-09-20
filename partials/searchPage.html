@@ -1,0 +1,76 @@
+<!--table ng-repeat="(key, question) in searchData.searchInfo">
+	<br><br>Search Info:
+	<tr ng-repeat="(_key, value) in question" >
+	  <td> {{ _key }} </td> <td> {{ value }} </td>
+	</tr>
+	<td><button ng-click="searchData.loadQuestion(question.question_id)">Link to question with id: {{question.question_id}}</button></td>
+</table-->
+
+<div class="searchPageContainer">
+
+<div class="panel panel-default panel-body" ng-model="sortOrder">
+	<div class="inline_search">
+		<form novalidate class="simple-form">
+			<input type="text" ng-model="searchData.userInputText" />
+			<button ng-click="searchData.getSearchInfo(searchData)">Search</button>
+		</form>
+	</div>
+	<div class="sort_by">
+		Sort Results: 
+		<a href="" ng-class="sortOrder === 'title' ? 'highlight_button_background' : ''" ng-click="sortOrder != 'title' ? reverse = false : reverse = !reverse; sortOrder = 'title'">
+            <div ng-show="sortOrder === 'title'" ng-class="sortOrder === 'title' && !reverse ? 'highlight_button_upvote' : 'highlight_button_downvote'"></div>
+            Titles
+        </a> |
+		<a href="" ng-class="sortOrder === 'answer_count' ? 'highlight_button_background' : ''" ng-click="sortOrder != 'answer_count' ? reverse = true : reverse = !reverse; sortOrder = 'answer_count'">
+            <div ng-show="sortOrder === 'answer_count'" ng-class="sortOrder === 'answer_count' && !reverse ? 'highlight_button_upvote' : 'highlight_button_downvote'"></div>
+            Answers
+        </a> |
+		<a href="" ng-class="sortOrder === 'score' ? 'highlight_button_background' : ''" ng-click="sortOrder != 'score' ? reverse = true : reverse = !reverse; sortOrder = 'score'">
+            <div ng-show="sortOrder === 'score'" ng-class="sortOrder === 'score' && !reverse ? 'highlight_button_upvote' : 'highlight_button_downvote'"></div>
+            Scores
+        </a> |
+		<a href="" ng-class="sortOrder === 'view_count' ? 'highlight_button_background' : ''" ng-click="sortOrder != 'view_count' ? reverse = true : reverse = !reverse; sortOrder = 'view_count'">
+            <div ng-show="sortOrder === 'view_count'" ng-class="sortOrder === 'view_count' && !reverse ? 'highlight_button_upvote' : 'highlight_button_downvote'"></div>
+            Views
+        </a> |
+		<a href="" ng-class="sortOrder === 'creation_date' ? 'highlight_button_background' : ''" ng-click="sortOrder != 'creation_date' ? reverse = true : reverse = !reverse; sortOrder = 'creation_date'">
+            <div ng-show="sortOrder === 'creation_date'" ng-class="sortOrder === 'creation_date' && !reverse ? 'highlight_button_upvote' : 'highlight_button_downvote'"></div>
+            Date Posted
+        </a>
+	</div>
+</div>
+        <br>
+<div ng-repeat="(key, question) in searchData.searchInfo | orderBy:sortOrder:reverse">
+	<div class="panel panel-default">
+		<div class="media panel-body">
+            <a ng-click="loadQuestion(question.question_id)"><p class="question_title" ng-bind-html="validateSnippet(question.title)"></p></a>
+			<div class="question_metrics">
+				<span>Score: {{question.score}}</span> | 
+				<span>Views: {{question.view_count}}</span> | 
+				<span>Answers: {{question.answer_count}}</span>
+			</div>
+			<div class="question_footer">
+				<div class=tag_list>
+					<span ng-repeat="tag in question.tags">
+                        <a class="topic_tag" ng-click="setSearchQuery(tag); searchData.getSearchInfo(searchData)" rel={{tag}}>{{tag}}</a>
+					</span>
+				</div>
+				<span class="user_date">Date: {{question.creation_date + "000" | date:'medium'}}</span><br>
+			</div>
+		</div>
+	</div>
+	<br>
+</div>
+
+<!--/div-->
+<h2 class="profile-subheader">Question Tags</h2>
+<div class="tagCloudHolder panel panel-default" >
+    <div class="media panel-body">
+        <div id="tagging">
+            <a class="tagCloud topic_tag" ng-repeat="question in searchData.searchInfo" ng-click="loadQuestion(question.question_id)"
+               rel="{{question.view_count}}" ng-bind-html="validateSnippet(question.title)">
+            </a>
+        </div>
+    </div>
+</div>
+    </div>

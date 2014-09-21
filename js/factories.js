@@ -79,7 +79,7 @@ myApp.factory('userLoginAuthentication', [ '$http', 'globalObject', function($ht
 		
 	authenticationInfo.authenticate = function(){
         	if(!(globalObject.getAccessToken())){
-        		location.href = "https://stackexchange.com/oauth/dialog?client_id=3523&scope=no_expiry,write_access&redirect_uri=http://eolivercoakley.github.io";         		
+        		location.href = "https://stackexchange.com/oauth/dialog?client_id=3610&scope=no_expiry,write_access&redirect_uri=http://elifrost232.github.io";         		
         	}       	
         };
             
@@ -94,23 +94,23 @@ myApp.factory('allUserData', ['$http', 'globalObject',  function($http, globalOb
   	var promise_userInfo, promise_userBadgesInfo, promise_userTimelineInfo, promise_userFavorites, promise_userTagCloudInfo;
   	  	
     allUserInfo.getUserInfo = function(){
-		return (promise_userInfo = generalAPICall(promise_userInfo, "https://api.stackexchange.com/2.2/me?order=desc&sort=reputation&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
+		return (promise_userInfo = generalAPICall(promise_userInfo, "https://api.stackexchange.com/2.2/me?order=desc&sort=reputation&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
 	};  
 
     allUserInfo.getUserBadgesInfo = function(){
-    	return (promise_userBadgesInfo = generalAPICall(promise_userBadgesInfo, "https://api.stackexchange.com/2.2/me/badges?order=desc&sort=rank&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((&access_token=" + accessToken + "&filter=!9YdnSNoYZ&callback=JSON_CALLBACK"));
+    	return (promise_userBadgesInfo = generalAPICall(promise_userBadgesInfo, "https://api.stackexchange.com/2.2/me/badges?order=desc&sort=rank&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((&access_token=" + accessToken + "&filter=!9YdnSNoYZ&callback=JSON_CALLBACK"));
 	};    
 
     allUserInfo.getUserTimelineInfo = function(){
-    	return (promise_userTimelineInfo = generalAPICall(promise_userTimelineInfo, "https://api.stackexchange.com/2.2/me/timeline?site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
+    	return (promise_userTimelineInfo = generalAPICall(promise_userTimelineInfo, "https://api.stackexchange.com/2.2/me/timeline?site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
 	};  
     
 	allUserInfo.getUserFavorites = function(){		
-    	return (promise_userFavorites = userFavoritesRequest(promise_userFavorites, "https://api.stackexchange.com/2.2/me/favorites?order=desc&sort=activity&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
+    	return (promise_userFavorites = userFavoritesRequest(promise_userFavorites, "https://api.stackexchange.com/2.2/me/favorites?order=desc&sort=activity&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
 	}; 
     
 	allUserInfo.getUserTagCloudInfo = function(){
-    	return (promise_userTagCloudInfo = generalAPICall(promise_userTagCloudInfo, "https://api.stackexchange.com/2.2/me/tags?order=desc&sort=popular&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
+    	return (promise_userTagCloudInfo = generalAPICall(promise_userTagCloudInfo, "https://api.stackexchange.com/2.2/me/tags?order=desc&sort=popular&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((&access_token=" + accessToken + "&callback=JSON_CALLBACK"));
 	};  
 
 	function userFavoritesRequest(promiseData, url){
@@ -150,7 +150,7 @@ myApp.factory('questionData', ['$http', 'globalObject',  function($http, globalO
     var access_token = _tmpAccessToken ? "&access_token=" + _tmpAccessToken : "";
 
 	questionObject.getQuestionAPIData = function(){
-    	return (promise_questionInfo = questionAPICall(promise_questionInfo, "https://api.stackexchange.com/2.2/questions/"+ questionID +"?order=desc&filter=!)rCcH9YBU.wsVQxBWq.X&sort=activity&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((" + access_token + "&callback=JSON_CALLBACK"));
+    	return (promise_questionInfo = questionAPICall(promise_questionInfo, "https://api.stackexchange.com/2.2/questions/"+ questionID +"?order=desc&filter=!)rCcH9YBU.wsVQxBWq.X&sort=activity&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((" + access_token + "&callback=JSON_CALLBACK"));
 	};	
 		
 	questionObject.setQuestionID = function(_questionID){
@@ -171,7 +171,7 @@ myApp.factory('questionData', ['$http', 'globalObject',  function($http, globalO
                 url: url_to_search,
                 data: $.param({
                     id: questionID,
-					key:"C8mLfFHVyj1TGEfdDQTEYw((",
+					key:"Cean1XgZ2dlWKCn0VNnAUA((",
 					access_token: globalObject.getAccessToken(),
 					site:"stackoverflow",
 					preview : false
@@ -214,7 +214,7 @@ myApp.factory('searchData', ['$http', 'globalObject', function($http, globalObje
 	var access_token = _tmpAccessToken ? "&access_token=" + _tmpAccessToken : "";
 
 	searchObject.getSearchAPIData = function(){		
-    	return (promise_searchInfo = searchAPICall(promise_searchInfo, "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + searchQuery + "&closed=False&tagged=javascript&site=stackoverflow&key=C8mLfFHVyj1TGEfdDQTEYw((" + access_token + "&callback=JSON_CALLBACK"));
+    	return (promise_searchInfo = searchAPICall(promise_searchInfo, "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + searchQuery + "&closed=False&tagged=javascript&site=stackoverflow&key=Cean1XgZ2dlWKCn0VNnAUA((" + access_token + "&callback=JSON_CALLBACK"));
 	};
 	
 	searchObject.setSearchTag = function(_searchQuery){

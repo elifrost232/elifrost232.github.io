@@ -72,7 +72,7 @@ myApp.factory('globalObject', ['$http', '$cookieStore', function($http, $cookieS
     return globalObject;
 }]);
 
-myApp.factory('userLoginAuthentication', [ '$http', 'globalObject', function($http, globalObject) {
+myApp.factory('userLoginAuthentication', [ '$http', 'globalObject', '$cookieStore', function($http, globalObject, $cookieStore) {
 	
   	var authenticationInfo = {};
 	var authentication_cache;
@@ -82,6 +82,14 @@ myApp.factory('userLoginAuthentication', [ '$http', 'globalObject', function($ht
         		location.href = "https://stackexchange.com/oauth/dialog?client_id=3610&scope=no_expiry,write_access&redirect_uri=http://elifrost232.github.io";         		
         	}       	
         };
+ 
+ 	authenticationInfo.unAuthenticate = function(){
+        	if(globalObject.getAccessToken()){
+        		  $cookieStore.remove("access_token");
+        		  location.reload();
+        	}       	
+        };
+     
             
     return authenticationInfo;
 }]);

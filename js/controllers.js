@@ -41,6 +41,10 @@ myApp.controller('GlobalController', ['globalObject', 'userLoginAuthentication',
           userLoginAuthentication.authenticate();
       };
 
+      $scope.stackExchangeLogout = function(){
+          userLoginAuthentication.unAuthenticate();
+      };
+
       //Get favorites data for the user if they are authenticated:
       if(globalObject.getAccessToken()){
           allUserData.getUserFavorites();

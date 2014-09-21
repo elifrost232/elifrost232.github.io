@@ -38,11 +38,14 @@
                                 <li class="service-cell service-home" ng-show="isAuthenticated">
                                     <a href="" ng-click="navigation('Home')"></a>
                                 </li>
-                                <li class="service-cell service-welcome" ng-show="!isAuthenticated">
+                                <li class="service-cell service-welcome" ng-hide="isAuthenticated">
                                     <a href="" ng-click="stackExchangeLogin()">Log in</a> or <a href="https://stackoverflow.com/users/signup?returnurl=http%3A%2F%2Feolivercoakley.github.io%2F">Create an Account</a>
                                 </li>
                                 <li class="service-cell service-account">
                                     <a href="" class="service-link" tabindex="50" ng-click="navigation('Search')">Search</a>
+                                </li>
+                                <li class="service-cell service-account" ng-show="isAuthenticated">
+                                    <a href="" class="service-link" ng-click="navigation('Search')">Log Out</a>
                                 </li>
                             </ul>
                             <span class="clear"></span>

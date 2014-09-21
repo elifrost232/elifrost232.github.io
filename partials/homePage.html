@@ -5,7 +5,7 @@
 <div ng-repeat="(key, _userInfo) in homeData.userInfo">
     <div class="panel panel-default profile-panel">
         <div class="media panel-body">
-            <div class="user-picture"><img ng-src="_userInfo.profile_image"/></div>
+            <div class="user-picture"><img ng-src="{{_userInfo.profile_image}}"/></div>
             <table class="user-info">
                 <tr>
                     <td>Name</td>

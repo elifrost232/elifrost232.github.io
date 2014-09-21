@@ -3,19 +3,19 @@
 myApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
-			when('/Login', {
+			when('/Login/', {
 				templateUrl: 'partials/loginPage.html',
 				controller: 'LoginController as loginData'
 			}).
-			when('/Question', {
+			when('/Question/:question_id', {
 				templateUrl: 'partials/questionPage.html',
 				controller: 'QuestionController as questionData'
 			}).
-			when('/Search', {
+			when('/Search/', {
 				templateUrl: 'partials/searchPage.html',
 				controller: 'SearchController as searchData'
 			}).
-			when('/Home', {
+			when('/Home/', {
 				templateUrl: 'partials/homePage.html',
 				controller: 'HomeController as homeData'
 			}).

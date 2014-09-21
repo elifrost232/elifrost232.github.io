@@ -59,7 +59,7 @@
                                 <span class="breadcrumb-home">
                                     <i class="icon-home"></i>
                                 </span>
-                                <span ng-repeat="item in breadCrumbList[$location.path()]">
+                                <span ng-repeat="item in breadCrumbList[$location.path().slice(0,$location.path().lastIndexOf('/'))]">
                                     <span class="divider">
                                         <a href="#/{{item}}">{{item}}</a>
                                         <i ng-show="!$last" class="icon-chevron-right icon-white"></i>

@@ -19,7 +19,7 @@ myApp.controller('GlobalController', ['globalObject', 'userLoginAuthentication',
           "/Question" : ["Home", "Search", "Question"],
           "/Home" : ["Home"],
           "/Search" : ["Home", "Search"]
-      }
+      };
 
       $scope.currentLocation = $scope.breadCrumbList[$location];
 
@@ -29,13 +29,12 @@ myApp.controller('GlobalController', ['globalObject', 'userLoginAuthentication',
 
       //Set the question ID and now load the new page.
       $scope.loadQuestion = function(questionInfo){
-          questionData.setQuestionID(questionInfo);
-          location.href = "#/Question";
+          location.href = "#/Question/" + questionInfo;
       };
 
       $scope.setSearchQuery = function(query){
           searchData.setSearchTag(query);
-          location.href = "#/Search";
+          location.href = "#/Search/";
       };
 
       $scope.stackExchangeLogin = function(){
@@ -120,9 +119,10 @@ myApp.controller('HomeController', ['globalObject', 'searchData', 'allUserData',
 
 myApp.controller('QuestionController', ['globalObject', 'questionData', '$scope', '$routeParams', '$http',
   function(globalObject, questionData, $scope, $routeParams, $http) {  	
-  	
+  		var currentHashQuestionID = $routeParams.question_id;
   	  	//Initial Load
-  	  	if(questionData.getQuestionID()){
+  	  	if(currentHashQuestionID){
+  	  		questionData.setQuestionID(currentHashQuestionID);
   	  		questionData.getQuestionAPIData().success(
   	  			function(data){
                     if(data && data.items && data.items[0]){

@@ -68,56 +68,54 @@
                 <div ng-show="_timelineInfo.timeline_type == 'revision'" src="img/editing.png" alt="timeline event" class="timeline-icon icon-pencil"/>
             </div>
             <div class="timeline-text">
-            	{{ _timelineInfo }}
                 <span ng-show="_timelineInfo.timeline_type == 'accepted'">
-
                     <p class="timeline-header">Accepted An Answer</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <p class="timeline-description">{{ _timelineInfo.detail }}</p>
                     <br/>
                 </span>
                 <span ng-show="_timelineInfo.timeline_type == 'answered'">
                     <p class="timeline-header">Posted An Answer</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <br/>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'asked'">
                     <p class="timeline-header">Asked A Question</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <br/>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'badge'">
                     <p class="timeline-header">Earned A Badge</p>
                     <p class="timeline-description">New Badge: {{ _timelineInfo.detail }}</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'commented'">
                     <p class="timeline-header">Posted A Comment</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <p class="timeline-description">"{{ _timelineInfo.detail }}"</p>
                     <br/>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'reviewed'">
                     <p class="timeline-header">Reviewed A Suggested Edit</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <p class="timeline-description">"{{ _timelineInfo.detail }}"</p>
                     <br/>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'revision'">
                     <p class="timeline-header">Edited A Post</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <p class="timeline-description">"{{ _timelineInfo.detail }}"</p>
                     <br/>
                 </span>
 
                 <span ng-show="_timelineInfo.timeline_type == 'suggested'">
                     <p class="timeline-header">Suggested An Edit</p>
-                    <a href="{{ _timelineInfo.link }}" ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</a>
+                    <div ng-bind-html="validateSnippet(_timelineInfo.title)">{{_timelineInfo.title }}</div>
                     <p class="timeline-description">"{{ _timelineInfo.detail }}"</p>
                     <br/>
                 </span>

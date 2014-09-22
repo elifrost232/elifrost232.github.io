@@ -42,7 +42,7 @@
                                     <a href="" ng-click="stackExchangeLogin()">Log in</a> or <a href="https://stackoverflow.com/users/signup?returnurl=http%3A%2F%2Feolivercoakley.github.io%2F">Create an Account</a>
                                 </li>
                                 <li class="service-cell service-account">
-                                    <a href="" class="service-link" tabindex="50" ng-click="navigation('Search')">Search</a>
+                                    <a href="" class="service-link" ng-click="navigation('Search')">Search</a>
                                 </li>
                                 <li class="service-cell service-account" ng-show="isAuthenticated">
                                     <a href="" class="service-link" ng-click="stackExchangeLogout()">Log Out</a>
@@ -80,8 +80,12 @@
         <footer class="page-footer">
             <p class="page-footer-row">&copy;2014 E. Oliver Coakley	</p>
             <div>
-                <img src="img/blizzard.41Ned.png" alt="blizzard logo" style="float:left;"/>
-                <img src="img/se-logo-white.png" alt="stack exchange logo" style="float:right;"/>
+            	<a href="http://blizzard.com">
+            		<img src="img/blizzard.41Ned.png" style="float:left;"/>
+            	</a>                
+            	<a href="http://stackexchange.com">
+                <img src="img/se-logo-white.png" style="float:right;"/>
+               </a>
             </div>
         </footer>
 	</body>

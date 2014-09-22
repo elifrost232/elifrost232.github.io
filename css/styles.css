@@ -271,10 +271,14 @@ p.question_title{
 }
 
 footer.page-footer{
+	overflow: hidden;
 	border-top: rgba(255,255,255,0.12);
 	border-top-width: 1px;
 	border-top-style: solid;
-	margin: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 40px;
+	margin-bottom: 50px;
 }
 p.page-footer-row{
 	margin-top: 10px;
@@ -483,4 +487,10 @@ p.timeline-description{
 
 .score .answer_score{
     float:none;
+}
+
+.data_unavailable{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	text-align: center;
 }

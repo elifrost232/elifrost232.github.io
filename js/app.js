@@ -5,19 +5,23 @@ myApp.config(['$routeProvider',
 		$routeProvider.
 			when('/Login/', {
 				templateUrl: 'partials/loginPage.html',
-				controller: 'LoginController as loginData'
+				controller: 'LoginController',
+				controllerAs: 'loginData'
 			}).
-			when('/Question/:question_id', {
+			when('/Question/:question_id?', {
 				templateUrl: 'partials/questionPage.html',
-				controller: 'QuestionController as questionData'
+				controller: 'QuestionController',				
+				controllerAs: 'questionData'
 			}).
 			when('/Search/', {
 				templateUrl: 'partials/searchPage.html',
-				controller: 'SearchController as searchData'
+				controller: 'SearchController',
+				controllerAs : 'searchData'
 			}).
 			when('/Home/', {
 				templateUrl: 'partials/homePage.html',
-				controller: 'HomeController as homeData'
+				controller: 'HomeController',
+				controllerAs : 'homeData',
 			}).
 			otherwise({
 				redirectTo: '/Login'

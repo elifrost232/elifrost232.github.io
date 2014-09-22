@@ -122,8 +122,9 @@ myApp.controller('HomeController', ['globalObject', 'searchData', 'allUserData',
 
 
 myApp.controller('QuestionController', ['globalObject', 'questionData', '$scope', '$routeParams', '$http',
-  function(globalObject, questionData, $scope, $routeParams, $http) {  	
-  		var currentHashQuestionID = $routeParams.question_id;
+  function(globalObject, questionData, $scope, $routeParams, $http) {
+  		var currentHashQuestionID = $routeParams.question_id ? $routeParams.question_id : questionData.getQuestionID();
+  		this.pageLoadMessage = "Loading Question Information...";
   	  	//Initial Load
   	  	if(currentHashQuestionID){
   	  		questionData.setQuestionID(currentHashQuestionID);
@@ -135,10 +136,11 @@ myApp.controller('QuestionController', ['globalObject', 'questionData', '$scope'
                     }
                     else{
                         this.displayScreen = false;
+                        this.pageLoadMessage = "Unable to display the question requested.";
                     }
   	  			}.bind(this)
   	  		);
-  	  	};  	  	
+  	  	}; 	  	
   	  	
   	  	this.setFavorite = function(){
   	  		questionData.toggleFavoriteQuestion().success(

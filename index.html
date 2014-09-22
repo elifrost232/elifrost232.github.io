@@ -64,7 +64,7 @@
                                 </span>
                                 <span ng-repeat="item in breadCrumbList[$location.path().slice(0,$location.path().lastIndexOf('/'))]">
                                     <span class="divider">
-                                        <a href="#/{{item}}">{{item}}</a>
+                                        <a href="#/{{item}}/">{{item}}</a>
                                         <i ng-show="!$last" class="icon-chevron-right icon-white"></i>
                                     </span>
                                 </span>
